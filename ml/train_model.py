@@ -1,7 +1,15 @@
 from xgboost import XGBClassifier
 
 from ml.feature_engineering import FeatureEngineeringPipeline
-from sklearn.metrics import accuracy_score
+
+from sklearn.metrics import (
+    accuracy_score, 
+    precision_score, 
+    recall_score, 
+    f1_score, 
+    confusion_matrix, 
+    classification_report
+)
 
 
 class ChurnModelTrainer:
@@ -54,6 +62,20 @@ class ChurnModelTrainer:
         evaluate model predictions
         """
 
-        accuracy = accuracy_score(y_test, predictions)
-        return accuracy
+        metrics = {
+            "accuracy": accuracy_score(y_test, predictions),
+
+            "precision": precision_score(y_test, predictions),
+
+            "recall": recall_score(y_test, predictions),
+
+            "f1_score": f1_score(y_test, predictions),
+
+            "confusion_matrix": confusion_matrix(y_test, predictions),
+
+            "classification_report": classification_report(y_test, predictions) 
+
+        }
+
+        return metrics
     

@@ -1,4 +1,6 @@
 from xgboost import XGBClassifier
+from pathlib import Path
+import joblib
 
 from ml.feature_engineering import FeatureEngineeringPipeline
 
@@ -79,3 +81,29 @@ class ChurnModelTrainer:
 
         return metrics
     
+    
+    def save_model(self,model,model_path: str) -> None:
+        """
+        save trained model to disk
+        """
+
+        path = Path(model_path)
+
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        joblib.dump(model,path)
+
+
+    def load_model( self, model_path: str):
+        """
+        load trained model from disk
+        """
+
+        path = Path(model_path)
+
+        if not path.exists():
+            raise FileNotFoundError(f"Model file not found at {model_path}")
+
+        model = joblib.load(model_path)
+
+        return model

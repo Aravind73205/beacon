@@ -219,3 +219,6 @@ __marimo__/
 
 # Processed datasets
 data/processed/
+
+# Trained models
+models/

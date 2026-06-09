@@ -59,7 +59,7 @@ class ChurnExplainer:
         return dict(
             sorted(
                 feature_importance.items(),
-                key=lambda item: item[1],         # # Sort by feature importance score
+                key=lambda item: item[1],         # Sort by feature importance score
                 reverse=True
             )
         )

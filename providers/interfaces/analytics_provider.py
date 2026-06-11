@@ -5,8 +5,9 @@ class AnalyticsProvider(ABC):
     Abstract interface for analytics data providers.
 
     All analytics providers must implement these methods,
-    regardless of whether the source is Bloomreach,
-    CSV files, mock data, or another MCP.
+    regardless of whether the source is an MCP server,
+    CRM platform, analytics system, mock data source,
+    or another external integration.
     """
 
     @abstractmethod

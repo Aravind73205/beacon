@@ -222,3 +222,5 @@ data/processed/
 
 # Trained models
 models/
+
+data/memory_store.json
